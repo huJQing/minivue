@@ -1,13 +1,19 @@
-import { patch } from "./vnode/patch"
+import { patch } from "./vdom/patch"
+import Watcher from "./observe/watcher";
 export function mountComponent(vm, el) {
-    debugger
     vm.$el = el
-    vm._updata(vm._render());
+    // vm._update(vm._render());
+
+    let updateComponent = () => {
+        vm._update(vm._render());
+    }
+    new Watcher(vm, updateComponent, null, true)
 }
 
 export function lifecycleMixin(Vue) {
-    Vue.prototype._updata = function (vnode) {
+    Vue.prototype._update = function (vnode) {
+        console.log("_update")
         const vm = this;
-        patch(vm.$el, vnode)
+        vm.$el = patch(vm.$el, vnode)
     }
 }

@@ -1,4 +1,4 @@
-import { createElement, createTextNode } from "./vnode";
+import { createElement, createTextNode } from "./vdom";
 
 export function renderMixin(Vue) {
     Vue.prototype._render = function () {
