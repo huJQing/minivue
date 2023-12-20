@@ -10,7 +10,7 @@ export function patch(oldVnode, vnode) {
     }
 }
 
-function createElement(vnode) {
+function createElm(vnode) {
     let { tag, data, key, children, text } = vnode
     if (typeof tag === 'string') {
         vnode.el = document.createElement(tag)
@@ -27,7 +27,7 @@ function createElement(vnode) {
 function updateProperties(vnode) {
     let newProps = vnode.data || {}
     let el = vnode.el
-    for (let key of newProps) {
+    for (let key in newProps) {
         if (key === 'style') {
             for (let styleName in newProps.style) {
                 el.style[styleName] = newProps.style[styleName];

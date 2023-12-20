@@ -1,6 +1,8 @@
+import { patch } from "./vnode/patch"
 export function mountComponent(vm, el) {
+    debugger
     vm.$el = el
-    vm._update(vm._render());
+    vm._updata(vm._render());
 }
 
 export function lifecycleMixin(Vue) {

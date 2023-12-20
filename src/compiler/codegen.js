@@ -15,7 +15,6 @@ function gen(node) {
         let match, index;
 
         while ((match = defaultTagRE.exec(text))) {
-            debugger
             // index代表匹配到的位置
             index = match.index;
             if (index > lastIndex) {
