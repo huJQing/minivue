@@ -12,7 +12,6 @@ export function mountComponent(vm, el) {
 
 export function lifecycleMixin(Vue) {
     Vue.prototype._update = function (vnode) {
-        console.log("_update")
         const vm = this;
         vm.$el = patch(vm.$el, vnode)
     }
